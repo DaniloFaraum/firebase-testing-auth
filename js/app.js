@@ -47,7 +47,6 @@ auth.onAuthStateChanged(user =>{
         }
         unsubscribe = thingsRef
             .where("uid","==",user.uid) //mostra apenas coisas com o id do user
-            .orderBy('createdAt')
             .onSnapshot(querySnapshot =>{
                 const items = querySnapshot.docs.map(doc =>{ //itera o documento e retorna para cada item especificado
                     return `<li>${doc.data().name}</li>`
